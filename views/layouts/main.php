@@ -5,27 +5,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-
 scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/practic_server/public/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pop it MVC</title>
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav-center">
         <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
-<?php
-if (!app()->auth::check()):
-    ?>
-    <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-<?php
-else:
-?>
-<a href="<?= app()->route->getUrl('/logout') ?>">Выход
-        (<?= app()->auth::user()->name ?>)</a>
-<?php
-endif;
-?>
+
+        <?php if (!app()->auth::check()): ?>
+            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
+        <?php else: ?>
+            <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->login ?>)</a>
+        <?php endif; ?>
+
+        <?php if (app()->auth::check()): ?>
+            <a href="<?= app()->route->getUrl('/staff/list') ?>">Сотрудники</a>
+            <a href="<?= app()->route->getUrl('/buildings') ?>">Здания</a>
+            <a href="<?= app()->route->getUrl('/rooms') ?>">Помещения</a>
+        <?php endif; ?>
     </nav>
 </header>
+
 <main>
     <?= $content ?? '' ?>
 </main>

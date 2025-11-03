@@ -5,7 +5,7 @@ use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
-class Site
+class SiteController
 {
     public function index(Request $request): string
     {
