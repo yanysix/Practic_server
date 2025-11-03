@@ -14,17 +14,18 @@
     <?php endif; ?>
     <?php if(app()->auth::check()): ?>
         <div class="welcome">
-            Вы вошли как: <strong><?= app()->auth->user()->name; ?></strong>
+            Вы вошли как: <strong><?= app()->auth->user()->login; ?></strong>
         </div>
     <?php else: ?>
         <form method="post" class="login-form">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <label>
                 Логин
-                <input type="text" name="login" placeholder="Введите логин" required>
+                <input type="text" name="login" placeholder="Введите логин">
             </label>
             <label>
                 Пароль
-                <input type="password" name="password" placeholder="Введите пароль" required>
+                <input type="password" name="password" placeholder="Введите пароль">
             </label>
             <button type="submit">Войти</button>
         </form>

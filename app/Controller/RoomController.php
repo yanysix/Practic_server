@@ -8,12 +8,33 @@ use Model\Building;
 
 class RoomController
 {
-    // Список комнат
+    // Список комнат с фильтром
     public function index(Request $request): string
     {
-        $rooms = Room::with('building')->get(); // подгружаем здание
-        return new View('room.list', ['rooms' => $rooms]);
+        $query = Room::with('building');
+
+        $building_id = $request->get('building_id') ?? '';
+        $search = $request->get('search') ?? '';
+
+        if ($building_id) {
+            $query->where('fk_building_id', $building_id);
+        }
+
+        if ($search) {
+            $query->where('name', 'LIKE', "%$search%");
+        }
+
+        $rooms = $query->get();
+        $buildings = Building::all();
+
+        return new View('room.list', [
+            'rooms' => $rooms,
+            'buildings' => $buildings,
+            'building_id' => $building_id,
+            'search' => $search
+        ]);
     }
+
 
     // Форма создания комнаты
     public function create(Request $request): string

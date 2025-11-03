@@ -4,7 +4,6 @@ const DIR_CONFIG = '/../config';
 
 //Подключение автозагрузчика composer
 require_once __DIR__ . '/../vendor/autoload.php';
-
 //Функция, возвращающая массив всех настроек приложения
 function getConfigs(string $path = DIR_CONFIG): array
 {

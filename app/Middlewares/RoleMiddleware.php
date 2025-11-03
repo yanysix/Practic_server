@@ -21,12 +21,19 @@ class RoleMiddleware
             return; // роли не указаны — пропускаем
         }
 
+        // Преобразуем список ролей в массив
         $allowedRoles = explode(',', $roles);
 
-        if (!in_array($userRole, $allowedRoles)) {
-            // роль не разрешена — редирект
-            header('Location: /practic_server/hello');
-            exit;
+        if (in_array('admin', $allowedRoles) && $userRole === 'admin') {
+            return; // админ — доступ разрешен
         }
+
+        if (in_array('staff', $allowedRoles) && $userRole === 'staff') {
+            return; // staff — доступ разрешен
+        }
+
+        // Если роль не разрешена — редирект на главную
+        header('Location: /practic_server/hello');
+        exit;
     }
 }

@@ -15,6 +15,7 @@ class ComposerStaticInitacd9a5fc4f534f74a3340c7be52796a7
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         'ef65a1626449d89d0811cf9befce46f0' => __DIR__ . '/..' . '/illuminate/events/functions.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '2d5a59807b938f732fc28fcc099e61e9' => __DIR__ . '/..' . '/yanysix/collect/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -57,6 +58,7 @@ class ComposerStaticInitacd9a5fc4f534f74a3340c7be52796a7
         ),
         'C' => 
         array (
+            'Collect\\' => 8,
             'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
         ),
@@ -145,6 +147,10 @@ class ComposerStaticInitacd9a5fc4f534f74a3340c7be52796a7
         'Doctrine\\Inflector\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/src',
+        ),
+        'Collect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yanysix/collect/src',
         ),
         'Carbon\\Doctrine\\' => 
         array (

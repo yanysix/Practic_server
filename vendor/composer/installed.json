@@ -1719,6 +1719,53 @@
                 }
             ],
             "install-path": "../voku/portable-ascii"
+        },
+        {
+            "name": "yanysix/collect",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yanysix/collect.git",
+                "reference": "7cace5b9f0ae413fa635faa56c60256c13445b75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yanysix/collect/zipball/7cace5b9f0ae413fa635faa56c60256c13445b75",
+                "reference": "7cace5b9f0ae413fa635faa56c60256c13445b75",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "time": "2025-11-03T16:03:24+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yanysix",
+                    "email": "taratynova.yana@bk.ru"
+                }
+            ],
+            "description": "Module for working with arrays ",
+            "support": {
+                "issues": "https://github.com/yanysix/collect/issues",
+                "source": "https://github.com/yanysix/collect/tree/main"
+            },
+            "install-path": "../yanysix/collect"
         }
     ],
     "dev": true,

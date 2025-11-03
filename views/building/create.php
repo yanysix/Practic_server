@@ -19,6 +19,7 @@
     <?php endif; ?>
 
     <form action="" method="POST">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <label>Название здания:</label>
         <input type="text" name="name" value="<?= htmlspecialchars($name ?? '') ?>">
 

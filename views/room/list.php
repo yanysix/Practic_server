@@ -10,6 +10,23 @@
 <div class="list-container">
     <h2>Список комнат</h2>
 
+    <form class="filter-form" method="GET" action="">
+        <label for="building_filter">Выберите здание:</label>
+        <select id="building_filter" name="building_id">
+            <option value="">Все здания</option>
+            <?php foreach ($buildings as $building): ?>
+                <option value="<?= $building->building_id ?>" <?= isset($_GET['building_id']) && $_GET['building_id'] == $building->building_id ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($building->name) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <label for="search_name">Поиск по названию:</label>
+        <input type="text" id="search_name" name="search" placeholder="Введите название" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+
+        <button type="submit">Применить</button>
+    </form>
+
     <?php if (!empty($rooms)): ?>
         <table class="room-table">
             <thead>

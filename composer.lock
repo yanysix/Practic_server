@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bbad1a711dad57905ea54d1367da4ba",
+    "content-hash": "d3abbb5466d9bf162ac597c0be7fbd74",
     "packages": [
         {
             "name": "brick/math",
@@ -1650,6 +1650,50 @@
                 }
             ],
             "time": "2024-11-21T01:49:47+00:00"
+        },
+        {
+            "name": "yanysix/collect",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yanysix/collect.git",
+                "reference": "7cace5b9f0ae413fa635faa56c60256c13445b75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yanysix/collect/zipball/7cace5b9f0ae413fa635faa56c60256c13445b75",
+                "reference": "7cace5b9f0ae413fa635faa56c60256c13445b75",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 | ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yanysix",
+                    "email": "taratynova.yana@bk.ru"
+                }
+            ],
+            "description": "Module for working with arrays ",
+            "support": {
+                "issues": "https://github.com/yanysix/collect/issues",
+                "source": "https://github.com/yanysix/collect/tree/main"
+            },
+            "time": "2025-11-03T16:03:24+00:00"
         }
     ],
     "packages-dev": [],
@@ -1658,7 +1702,8 @@
     "stability-flags": {
         "illuminate/database": 20,
         "illuminate/events": 20,
-        "nikic/fast-route": 20
+        "nikic/fast-route": 20,
+        "yanysix/collect": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
