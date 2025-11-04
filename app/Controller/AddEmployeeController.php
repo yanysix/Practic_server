@@ -4,7 +4,7 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Model\User;
-use Src\Validator\Validator; // если хочешь использовать валидатор (необязательно)
+use Src\Validator\Validator;
 
 class AddEmployeeController
 {
@@ -19,12 +19,11 @@ class AddEmployeeController
     {
         $data = $request->all();
 
-        // Простейшая валидация пустых полей
+        // Валидация пустых полей
         $login = trim($data['login'] ?? '');
         $password = trim($data['password'] ?? '');
 
         if ($login === '' || $password === '') {
-            // Возвращаем View без echo и без render()
             return new View('employee.create', [
                 'message' => 'Все поля обязательны'
             ]);

@@ -18,18 +18,18 @@ class RoleMiddleware
         $userRole = $user->role ?? null;
 
         if (!$roles) {
-            return; // роли не указаны — пропускаем
+            return;
         }
 
         // Преобразуем список ролей в массив
         $allowedRoles = explode(',', $roles);
 
         if (in_array('admin', $allowedRoles) && $userRole === 'admin') {
-            return; // админ — доступ разрешен
+            return;
         }
 
         if (in_array('staff', $allowedRoles) && $userRole === 'staff') {
-            return; // staff — доступ разрешен
+            return;
         }
 
         // Если роль не разрешена — редирект на главную

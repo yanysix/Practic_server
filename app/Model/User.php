@@ -11,10 +11,8 @@ class User extends Model implements IdentityInterface
 
     public $timestamps = false;
 
-    // Указываем имя таблицы, если нужно
     protected $table = 'users';
 
-    // Указываем, что первичный ключ — user_id
     protected $primaryKey = 'user_id';
 
     protected $fillable = [
@@ -32,19 +30,16 @@ class User extends Model implements IdentityInterface
         });
     }
 
-    // Выборка пользователя по первичному ключу
     public function findIdentity(int $id)
     {
         return self::where($this->primaryKey, $id)->first();
     }
 
-    // Возврат первичного ключа
     public function getId(): int
     {
         return $this->{$this->primaryKey};
     }
 
-    // Проверка логина и пароля
     public function attemptIdentity(array $credentials)
     {
         return self::where([

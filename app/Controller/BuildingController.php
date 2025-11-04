@@ -56,11 +56,9 @@ class BuildingController
         $totalInstitutionSquare = 0;
 
         foreach ($buildings as $building) {
-            // Считаем общее количество мест и площадь по комнатам здания
             $building->total_seats = $building->rooms->sum('count_seats');
             $building->total_square = $building->rooms->sum('square');
 
-            // Суммируем для всего учебного заведения
             $totalInstitutionSeats += $building->total_seats;
             $totalInstitutionSquare += $building->total_square;
         }
