@@ -14,17 +14,17 @@ class SiteController
             return new View('site.login');
         }
 
-        $data = $request->all();
-
-        $validator = new Validator($data, [
-            'login' => ['required'],
-            'password' => ['required']
-        ]);
+        $validator = new \Src\Validator\Validator(
+            $request->all(),
+            [
+                'login' => ['required'],
+                'password' => ['required'],
+            ],
+            ['required' => 'Поле :field пусто']
+        );
 
         if ($validator->fails()) {
-            $errors = $validator->errors();
-            $message = implode('<br>', array_merge(...array_values($errors)));
-            return new View('site.login', ['message' => $message]);
+            return new View('site.login', ['errors' => $validator->errors()]);
         }
 
         if (Auth::attempt($request->all())) {

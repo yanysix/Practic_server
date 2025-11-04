@@ -4,6 +4,7 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Model\User;
+use Src\Validator\Validator; // если хочешь использовать валидатор (необязательно)
 
 class AddEmployeeController
 {
@@ -14,28 +15,41 @@ class AddEmployeeController
     }
 
     // Обработка формы добавления
-    public function store(Request $request): void
+    public function store(Request $request): string
     {
         $data = $request->all();
 
-        $login = $data['login'] ?? '';
-        $password = $data['password'] ?? '';
+        // Простейшая валидация пустых полей
+        $login = trim($data['login'] ?? '');
+        $password = trim($data['password'] ?? '');
 
-        if (!$login || !$password) {
-            // Если ошибка, снова показать форму с сообщением
-            echo (new View('employee.create', ['message' => 'Все поля обязательны']))->render();
-            return;
+        if ($login === '' || $password === '') {
+            // Возвращаем View без echo и без render()
+            return new View('employee.create', [
+                'message' => 'Все поля обязательны'
+            ]);
         }
 
-        // Создать нового сотрудника с ролью 'staff'
+        // Проверяем, есть ли пользователь с таким логином
+        $existingUser = User::where('login', $login)->first();
+        if ($existingUser) {
+            return new View('employee.create', [
+                'message' => 'Пользователь с таким логином уже существует'
+            ]);
+        }
+
+
+        // Создаём нового сотрудника
         User::create([
             'login' => $login,
             'password' => $password,
-            'role' => 'staff' // всегда сотрудник
+            'role' => 'staff'
         ]);
 
-        // Редирект на список сотрудников
+        // Перенаправляем на список сотрудников
         app()->route->redirect('/staff/list');
+
+        return new View('employee.index');
     }
 
     // Список сотрудников

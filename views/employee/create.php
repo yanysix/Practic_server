@@ -22,13 +22,6 @@
         <label>Пароль:</label>
         <input type="password" name="password">
 
-        <label>Роль:</label>
-        <select name="role">
-            <option value="">Выберите роль</option>
-            <option value="admin" <?= isset($role) && $role === 'admin' ? 'selected' : '' ?>>Администратор</option>
-            <option value="staff" <?= isset($role) && $role === 'staff' ? 'selected' : '' ?>>Сотрудник</option>
-        </select>
-
         <button type="submit">Добавить</button>
     </form>
     <p><a href="/practic_server/staff/list">Список сотрудников</a></p>

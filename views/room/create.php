@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Добавить комнату</title>
+    <title>Добавить помещение</title>
     <link rel="stylesheet" href="/practic_server/css/room_form.css">
 </head>
 <body>

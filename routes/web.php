@@ -3,6 +3,7 @@ use Src\Route;
 use Controller\BuildingController;
 use Controller\RoomController;
 use Controller\AddEmployeeController;
+use Controller\ProfileController;
 
 // =========================
 // Общие маршруты
@@ -55,3 +56,12 @@ Route::add('GET', '/rooms/create', [RoomController::class, 'create'])
 // Сохранение комнаты — доступно всем авторизованным
 Route::add('POST', '/rooms/create', [RoomController::class, 'store'])
     ->middleware('auth','role:admin,staff');
+
+// =========================
+// Личный кабинет
+// =========================
+Route::add('GET', '/profile', [ProfileController::class, 'index'])
+    ->middleware('auth');
+
+Route::add('POST', '/profile', [ProfileController::class, 'update'])
+    ->middleware('auth');

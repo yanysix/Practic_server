@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #f0f2f5;
+    background: linear-gradient(135deg, #ffffff 0%, #5490ff 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,10 +29,10 @@ body {
 }
 
 .form-container .message {
-    background: #d4edda;
-    color: #155724;
+    background: #f5c6cb;
+    color: #721c24;
     padding: 10px;
-    border: 1px solid #c3e6cb;
+    border: 1px solid #f5c6cb;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;

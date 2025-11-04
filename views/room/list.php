@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Список комнат</title>
+    <title>Список помещений</title>
     <link rel="stylesheet" href="/practic_server/css/room_list.css">
 </head>
 <body>
 
 <div class="list-container">
-    <h2>Список комнат</h2>
+    <h2>Список помещений</h2>
 
     <form class="filter-form" method="GET" action="">
         <label for="building_filter">Выберите здание:</label>
