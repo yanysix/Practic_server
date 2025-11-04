@@ -23,6 +23,7 @@ return array(
     'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'Illuminate\\Bus\\' => array($vendorDir . '/illuminate/bus'),
+    'FileUploader\\' => array($vendorDir . '/yanysix/validator/src', $vendorDir . '/yanysix/validator/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Doctrine\\Inflector\\' => array($vendorDir . '/doctrine/inflector/src'),
     'Collect\\' => array($vendorDir . '/yanysix/collect/src'),

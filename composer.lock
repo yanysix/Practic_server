@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3abbb5466d9bf162ac597c0be7fbd74",
+    "content-hash": "c056bf40cf96fb6af73ba7291d6acd3b",
     "packages": [
         {
             "name": "brick/math",
@@ -1694,6 +1694,46 @@
                 "source": "https://github.com/yanysix/collect/tree/main"
             },
             "time": "2025-11-03T16:03:24+00:00"
+        },
+        {
+            "name": "yanysix/validator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yanysix/validator.git",
+                "reference": "c9e2225991d75f823f976fae33db98a53c0d220e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yanysix/validator/zipball/c9e2225991d75f823f976fae33db98a53c0d220e",
+                "reference": "c9e2225991d75f823f976fae33db98a53c0d220e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FileUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yanysix",
+                    "email": "taratynova.yana@bk.ru"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/yanysix/validator/issues",
+                "source": "https://github.com/yanysix/validator/tree/main"
+            },
+            "time": "2025-11-04T15:57:55+00:00"
         }
     ],
     "packages-dev": [],
@@ -1703,7 +1743,8 @@
         "illuminate/database": 20,
         "illuminate/events": 20,
         "nikic/fast-route": 20,
-        "yanysix/collect": 20
+        "yanysix/collect": 20,
+        "yanysix/validator": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

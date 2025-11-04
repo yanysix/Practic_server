@@ -1766,6 +1766,49 @@
                 "source": "https://github.com/yanysix/collect/tree/main"
             },
             "install-path": "../yanysix/collect"
+        },
+        {
+            "name": "yanysix/validator",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yanysix/validator.git",
+                "reference": "c9e2225991d75f823f976fae33db98a53c0d220e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yanysix/validator/zipball/c9e2225991d75f823f976fae33db98a53c0d220e",
+                "reference": "c9e2225991d75f823f976fae33db98a53c0d220e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "time": "2025-11-04T15:57:55+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "FileUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yanysix",
+                    "email": "taratynova.yana@bk.ru"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/yanysix/validator/issues",
+                "source": "https://github.com/yanysix/validator/tree/main"
+            },
+            "install-path": "../yanysix/validator"
         }
     ],
     "dev": true,

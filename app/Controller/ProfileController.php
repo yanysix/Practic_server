@@ -5,13 +5,15 @@ use Src\View;
 use Src\Request;
 use Src\Auth\Auth;
 use Model\User;
+use FileUploader\FileUploader;
+
 
 class ProfileController
 {
     // Показать личный кабинет
     public function index(Request $request): string
     {
-        $user = app()->auth->user(); // текущий пользователь
+        $user = app()->auth->user();
         return (new View('profile.index', ['user' => $user]));
     }
 
@@ -30,26 +32,20 @@ class ProfileController
 
         // Загрузка аватарки
         if (!empty($_FILES['avatar']['name'])) {
-            $avatar = $_FILES['avatar'];
-            $ext = pathinfo($avatar['name'], PATHINFO_EXTENSION);
-            $filename = 'avatar_' . $user->user_id . '.' . $ext;
-            $uploadDir = __DIR__ . '/../../public/uploads/';
+            $uploader = new FileUploader($_FILES['avatar'], ['image/jpeg','image/png','image/webp']);
+            $filename = 'avatar_' . $user->user_id;
 
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0755, true);
-            }
-
-            $target = $uploadDir . $filename;
-            if (move_uploaded_file($avatar['tmp_name'], $target)) {
-                $user->avatar = '/practic_server/public/uploads/' . $filename;
+            $savedFile = $uploader->save(__DIR__ . '/../../public/uploads/', $filename);
+            if ($savedFile) {
+                $user->avatar = '/practic_server/public/uploads/' . $savedFile;
                 $message .= "Аватар успешно обновлён.";
             } else {
-                $message .= "Ошибка при загрузке аватарки.";
+                $message .= "Ошибка при загрузке аватарки: " . implode(', ', $uploader->errors());
             }
         }
 
         $user->save();
 
-        return (new View('profile.index', ['user' => $user, 'message' => $message]));
+        return new View('profile.index', ['user' => $user, 'message' => $message]);
     }
 }

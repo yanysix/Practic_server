@@ -50,6 +50,7 @@ class ComposerStaticInitacd9a5fc4f534f74a3340c7be52796a7
         ),
         'F' => 
         array (
+            'FileUploader\\' => 13,
             'FastRoute\\' => 10,
         ),
         'D' => 
@@ -139,6 +140,11 @@ class ComposerStaticInitacd9a5fc4f534f74a3340c7be52796a7
         'Illuminate\\Bus\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/bus',
+        ),
+        'FileUploader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yanysix/validator/src',
+            1 => __DIR__ . '/..' . '/yanysix/validator/src',
         ),
         'FastRoute\\' => 
         array (
